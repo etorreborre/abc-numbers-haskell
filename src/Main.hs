@@ -65,5 +65,5 @@ abcNumber :: (Int, Int, Int) -> Integer
 abcNumber (a, b, c) = 2 ^ a * 3 ^ b * 5 ^ c
   
 tripletsOfSum :: Int -> [(Int, Int, Int)]
-tripletsOfSum n = [0 .. n] >>= (\i -> fmap (\j -> (i, j, n - i - j)) [0 .. n - i])
-
+tripletsOfSum n = [(i, j, n - i - j) | i <- [0 .. n], j <- [0 .. n - i]]
+  
